@@ -1,7 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/connexion', [AuthController::class, 'afficherFormulaireConnexion'])->name('connexion');
+Route::post('/connexion', [AuthController::class, 'connexion']);
+Route::post('/deconnexion', [AuthController::class, 'deconnexion'])->name('deconnexion');
+
+// Route protégée
+Route::get('/tableau_de_bord', function () {
+    return 'Bienvenue dans le tableau de bord !';
+})->middleware('auth');
+
