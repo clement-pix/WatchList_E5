@@ -8,10 +8,9 @@
 <body>
     <h1>Connexion</h1>
     <form method="POST" action="{{ route('connexion') }}">
-        @csrf
         <div>
-            <label for="email">Adresse Email</label>
-            <input type="email" name="email" id="email" required>
+            <label for="pseudo">Pseudo</label>
+            <input type="pseudo" name="pseudo" id="pseudo" required>
         </div>
         <div>
             <label for="mot_de_passe">Mot de Passe</label>
@@ -19,14 +18,5 @@
         </div>
         <button type="submit">Se connecter</button>
     </form>
-    @if ($errors->any())
-        <div>
-            <ul>
-                @foreach ($errors->all() as $erreur)
-                    <li>{{ $erreur }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 </body>
 </html>
