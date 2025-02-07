@@ -5,9 +5,9 @@ export default {
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
-        './resources/**/*.blade.php',
-        './resources/**/*.js',
-        './resources/**/*.vue',
+        './resources/**/*.blade.php',  // Vérifie que les vues Blade sont bien incluses
+        './resources/**/*.js',         // Vérifie que les fichiers JS sont inclus
+        './resources/**/*.vue',        // Si vous utilisez Vue.js
     ],
     theme: {
         extend: {
@@ -17,4 +17,5 @@ export default {
         },
     },
     plugins: [],
+    purge: ['./resources/**/*.blade.php', './resources/**/*.js', './resources/**/*.vue'],
 };
